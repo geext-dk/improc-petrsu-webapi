@@ -46,16 +46,6 @@ namespace WebApp
                 options.Cookie.HttpOnly = true;
                 options.Cookie.Name = "authCookie";
                 options.Cookie.Path = "/";
-                // TODO: possibly securit flaw, needs investigating
-                options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.None;
-                options.Events = new CookieAuthenticationEvents
-                {
-                    OnRedirectToLogin = context =>
-                    {
-                        context.Response.StatusCode = 401;
-                        return Task.CompletedTask;
-                    }
-                };
             });
 
             services.AddCors();
