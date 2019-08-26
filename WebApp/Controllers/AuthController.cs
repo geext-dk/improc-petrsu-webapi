@@ -1,23 +1,30 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Data;
 
-namespace WebApp.Controllers
+namespace WebApp.Controllers.AuthController
 {
-    [Route("api/auth")]
-    public class AuthController : ControllerBase
+    [Route("/auth")]
+    public class AuthController : Controller
     {
-        [HttpPost("login")]
-        public async Task Login(string email, string password)
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+        
+        [Route("login")]
+        public IActionResult Login()
+        {
+            return View();
         }
 
-        [HttpPost("logout")]
-        [Authorize]
-        public async Task Logout()
+        [Route("register")]
+        public IActionResult Register()
         {
-            await Request.HttpContext.SignOutAsync();
+            return View();
         }
     }
 }

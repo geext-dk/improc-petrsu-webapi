@@ -1,7 +1,9 @@
+using System;
+using Microsoft.AspNetCore.Identity;
+
 namespace WebApp.Data
 {
-    public class User
+    public class User : IdentityUser<Guid>
     {
-        public int Id { get; set; }
     }
 }
