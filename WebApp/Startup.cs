@@ -48,7 +48,7 @@ namespace WebApp
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 

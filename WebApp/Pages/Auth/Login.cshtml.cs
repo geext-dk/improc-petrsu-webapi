@@ -15,7 +15,7 @@ namespace WebApp.Pages.Auth
         [BindProperty]
         [EmailAddress]
         [Required]
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
 
         [BindProperty]
         [Required]
@@ -29,17 +29,21 @@ namespace WebApp.Pages.Auth
             _signInManager = signInManager;
         }
 
-        public async Task<IActionResult> OnGet()
+        public void OnGet()
+        {
+        }
+
+        public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(Email, Password,
+                var result = await _signInManager.PasswordSignInAsync(EmailAddress, Password,
                     isPersistent: true,
                     lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
-                    return RedirectToPage("Index");
+                    return RedirectToPage("/Index");
                 }
                 
                 ModelState.AddModelError(string.Empty, "Incorrect username or password");

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Data;
 
-namespace MyApp.Namespace
+namespace WebApp.Pages.Auth
 {
     public class LogoutModel : PageModel
     {
@@ -22,9 +22,11 @@ namespace MyApp.Namespace
             return NotFound();
         }
 
-        public async Task OnPostASync()
+        public async Task<IActionResult> OnPostAsync()
         {
             await _signInManager.SignOutAsync();
+
+            return RedirectToPage("/Index");
         }
     }
 }

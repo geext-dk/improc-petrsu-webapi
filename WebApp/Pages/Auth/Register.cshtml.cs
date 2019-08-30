@@ -15,7 +15,7 @@ namespace WebApp.Pages.Auth
         [BindProperty]
         [EmailAddress]
         [Required]
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
 
         [BindProperty]
         [Required]
@@ -35,19 +35,23 @@ namespace WebApp.Pages.Auth
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Page();
+                var user = new User
+                {
+                    Email = EmailAddress,
+                    UserName = EmailAddress
+                };
+
+                var result = await _userManager.CreateAsync(user, Password);
+
+                if (result.Succeeded)
+                {
+                    return Redirect("/");
+                }
             }
 
-            var user = new User
-            {
-                Email = Email
-            };
-
-            await _userManager.CreateAsync(user, Password);
-
-            return Redirect("/");
+            return Page();
         }
     }
 }
