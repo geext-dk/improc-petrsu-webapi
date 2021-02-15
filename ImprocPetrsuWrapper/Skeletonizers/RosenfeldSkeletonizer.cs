@@ -1,3 +1,4 @@
+using System;
 using ImprocPetrsuWrapper.Bindings;
 
 namespace ImprocPetrsuWrapper.Skeletonizers
@@ -10,9 +11,9 @@ namespace ImprocPetrsuWrapper.Skeletonizers
             _mode = mode;
         }
         
-        public byte[] Process(byte[] image)
+        public byte[] Process(byte[] image, Action<int, int> reportProgress)
         {
-            return ImprocPetrsu.RosenfeldSkeletonize(image, _mode);
+            return ImprocPetrsu.RosenfeldSkeletonize(image, _mode, reportProgress);
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using System.Runtime.InteropServices;
 using ImprocPetrsuWrapper.Bindings;
 
 namespace ImprocPetrsuWrapper.BinaryImageConverters
@@ -10,9 +12,9 @@ namespace ImprocPetrsuWrapper.BinaryImageConverters
             _threshold = threshold;
         }
 
-        public byte[] Process(byte[] imageBytes)
+        public byte[] Process(byte[] imageBytes, Action<int, int> reportProgress)
         {
-            return ImprocPetrsu.ConvertToBinary(imageBytes, _threshold);
+            return ImprocPetrsu.ConvertToBinary(imageBytes, _threshold, reportProgress);
         }
     }
 }
