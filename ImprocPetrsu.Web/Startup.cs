@@ -23,7 +23,10 @@ namespace ImprocPetrsu.Web
         {
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(builder => { builder.WithOrigins("http://localhost:3000"); });
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("https://geext.gitlab.io/improc-petrsu-frontend/");
+                });
             });
 
             services.AddControllers()
