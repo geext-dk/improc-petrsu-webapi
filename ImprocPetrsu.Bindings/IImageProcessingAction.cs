@@ -1,6 +1,6 @@
 using System;
 
-namespace ImprocPetrsuWrapper
+namespace ImprocPetrsu.Bindings
 {
     public interface IImageProcessingAction
     {

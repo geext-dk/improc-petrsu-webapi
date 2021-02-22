@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ImprocPetrsuWrapper\ImprocPetrsuWrapper.csproj" />
+      <ProjectReference Include="..\ImprocPetrsu.Bindings\ImprocPetrsu.Bindings.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using ImprocPetrsu.Web.Services;
+using ImprocPetrsu.WebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

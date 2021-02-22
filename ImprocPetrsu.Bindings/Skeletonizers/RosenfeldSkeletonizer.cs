@@ -1,7 +1,7 @@
 using System;
-using ImprocPetrsuWrapper.Bindings;
+using ImprocPetrsu.Bindings.NativeWrappers;
 
-namespace ImprocPetrsuWrapper.Skeletonizers
+namespace ImprocPetrsu.Bindings.Skeletonizers
 {
     public class RosenfeldSkeletonizer : IImageProcessingAction
     {
@@ -13,7 +13,7 @@ namespace ImprocPetrsuWrapper.Skeletonizers
         
         public byte[] Process(byte[] image, Action<int, int> reportProgress)
         {
-            return ImprocPetrsu.RosenfeldSkeletonize(image, _mode, reportProgress);
+            return ImprocPetrsuWrapper.RosenfeldSkeletonize(image, _mode, reportProgress);
         }
     }
 }

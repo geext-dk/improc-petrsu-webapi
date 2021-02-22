@@ -2,17 +2,17 @@
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using ImprocPetrsu.Bindings;
+using ImprocPetrsu.Bindings.BinaryImageConverters;
+using ImprocPetrsu.Bindings.NativeWrappers;
+using ImprocPetrsu.Bindings.Skeletonizers;
 using ImprocPetrsu.Web.Dto;
 using ImprocPetrsu.Web.Enums;
-using ImprocPetrsu.Web.Services;
-using ImprocPetrsuWrapper;
-using ImprocPetrsuWrapper.BinaryImageConverters;
-using ImprocPetrsuWrapper.Bindings;
-using ImprocPetrsuWrapper.Skeletonizers;
+using ImprocPetrsu.WebApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ImprocPetrsu.Web.Controllers
+namespace ImprocPetrsu.WebApi.Controllers
 {
     [ApiController]
     [Route("api/images")]

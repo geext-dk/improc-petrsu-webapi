@@ -1,4 +1,4 @@
-namespace ImprocPetrsuWrapper.Bindings
+namespace ImprocPetrsu.Bindings.NativeWrappers
 {
     public enum AdjacencyMode : byte
     {

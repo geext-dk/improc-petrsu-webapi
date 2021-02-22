@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Geext.AsyncArtifactCreator;
-using ImprocPetrsuWrapper;
+using ImprocPetrsu.Bindings;
 using Microsoft.Extensions.Hosting;
 
-namespace ImprocPetrsu.Web.Services
+namespace ImprocPetrsu.WebApi.Services
 {
     public class ImageProcessorHostedService
         : AsyncArtifactCreator<ImageProcessorHostedService.ImageToProcess,

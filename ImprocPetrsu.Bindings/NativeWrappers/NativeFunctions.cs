@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace ImprocPetrsuWrapper.Bindings
+namespace ImprocPetrsu.Bindings.NativeWrappers
 {
-    internal static class Bindings
+    internal static class NativeFunctions
     {
         [DllImport("improc_petrsu", CallingConvention = CallingConvention.Cdecl)]
         public static extern Buffer improc_petrsu_threshold_binary_image_converter_process(IntPtr bytes, UIntPtr len,

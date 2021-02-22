@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Transactions;
 
-namespace ImprocPetrsuWrapper.Bindings
+namespace ImprocPetrsu.Bindings.NativeWrappers
 {
-    internal static class ImprocPetrsu
+    internal static class ImprocPetrsuWrapper
     {
         private delegate void ReportProgress(int current, int max);
         public static byte[] ConvertToBinary(byte[] imageBytes, byte threshold, Action<int, int> reportProgress)
@@ -15,7 +14,7 @@ namespace ImprocPetrsuWrapper.Bindings
 
             byte[] retImageBytes;
             ReportProgress delegateReportProgress = (current, max) => reportProgress(current, max);
-            using (var retImageBuf = Bindings.improc_petrsu_threshold_binary_image_converter_process(bytesPtr, lenUsize,
+            using (var retImageBuf = NativeFunctions.improc_petrsu_threshold_binary_image_converter_process(bytesPtr, lenUsize,
                 threshold, Marshal.GetFunctionPointerForDelegate(delegateReportProgress)))
             {
                 retImageBytes = retImageBuf.ToArray();
@@ -33,7 +32,7 @@ namespace ImprocPetrsuWrapper.Bindings
 
             byte[] retImageBytes;
             ReportProgress delegateReportProgress = (current, max) => reportProgress(current, max);
-            using (var retImageBuf = Bindings.improc_petrsu_rosenfeld_skeletonizer_process(bytesPtr, lenUsize,
+            using (var retImageBuf = NativeFunctions.improc_petrsu_rosenfeld_skeletonizer_process(bytesPtr, lenUsize,
                 (byte) mode,
                 Marshal.GetFunctionPointerForDelegate(delegateReportProgress)))
             {
@@ -51,7 +50,7 @@ namespace ImprocPetrsuWrapper.Bindings
 
             byte[] retImageBytes;
             ReportProgress delegateReportProgress = (current, max) => reportProgress(current, max);
-            using (var retImageBuf = Bindings.improc_petrsu_eberly_skeletonizer_process(bytesPtr, lenUsize,
+            using (var retImageBuf = NativeFunctions.improc_petrsu_eberly_skeletonizer_process(bytesPtr, lenUsize,
                 Marshal.GetFunctionPointerForDelegate(delegateReportProgress)))
             {
                 retImageBytes = retImageBuf.ToArray();
@@ -68,7 +67,7 @@ namespace ImprocPetrsuWrapper.Bindings
 
             byte[] retImageBytes;
             ReportProgress delegateReportProgress = (current, max) => reportProgress(current, max);
-            using (var retImageBuf = Bindings.improc_petrsu_zhang_suen_skeletonizer_process(bytesPtr, lenUsize,
+            using (var retImageBuf = NativeFunctions.improc_petrsu_zhang_suen_skeletonizer_process(bytesPtr, lenUsize,
                 Marshal.GetFunctionPointerForDelegate(delegateReportProgress)))
             {
                 retImageBytes = retImageBuf.ToArray();

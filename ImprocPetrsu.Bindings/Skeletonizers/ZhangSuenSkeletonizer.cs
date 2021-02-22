@@ -1,13 +1,13 @@
 using System;
-using ImprocPetrsuWrapper.Bindings;
+using ImprocPetrsu.Bindings.NativeWrappers;
 
-namespace ImprocPetrsuWrapper.Skeletonizers
+namespace ImprocPetrsu.Bindings.Skeletonizers
 {
     public class ZhangSuenSkeletonizer : IImageProcessingAction
     {
         public byte[] Process(byte[] imageBytes, Action<int, int> reportProgress)
         {
-            return ImprocPetrsu.ZhangSuenSkeletonize(imageBytes, reportProgress);
+            return ImprocPetrsuWrapper.ZhangSuenSkeletonize(imageBytes, reportProgress);
         }
     }
 }
