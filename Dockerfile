@@ -16,4 +16,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=build-env /app/ImprocPetrsu.WebApi/out .
-ENTRYPOINT ["ASPNETCORE_URLS=http://*:$PORT", "dotnet", "ImprocPetrsu.WebApi.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet ImprocPetrsu.WebApi.dll
