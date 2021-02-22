@@ -27,7 +27,6 @@ namespace ImprocPetrsu.Web
                 {
                     builder.AllowAnyOrigin()
                         .AllowAnyHeader()
-                        .AllowCredentials()
                         .AllowAnyMethod();
                 });
             });
