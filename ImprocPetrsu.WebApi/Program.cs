@@ -18,13 +18,7 @@ namespace ImprocPetrsu.Web
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder = webBuilder.UseStartup<Startup>();
-
-                    var port = Environment.GetEnvironmentVariable("PORT");
-                    if (port != null)
-                        webBuilder.UseUrls("http://*:" + port);
-                });
+                .ConfigureWebHostDefaults(
+                    webBuilder => webBuilder.UseStartup<Startup>());
     }
 }
