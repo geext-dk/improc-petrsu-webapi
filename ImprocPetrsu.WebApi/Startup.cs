@@ -21,6 +21,17 @@ namespace ImprocPetrsu.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowCredentials()
+                        .AllowAnyMethod();
+                });
+            });
+
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -44,6 +55,8 @@ namespace ImprocPetrsu.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors();
             
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ImprocPetrsu.Web v1"));
