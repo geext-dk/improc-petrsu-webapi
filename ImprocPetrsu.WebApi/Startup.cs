@@ -56,7 +56,6 @@ namespace ImprocPetrsu.Web
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
             
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ImprocPetrsu.Web v1"));
@@ -64,6 +63,7 @@ namespace ImprocPetrsu.Web
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
