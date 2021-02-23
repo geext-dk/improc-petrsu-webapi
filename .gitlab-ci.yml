@@ -1,0 +1,18 @@
+﻿image: docker:latest
+services:
+- docker:dind
+
+stages:
+  - deploy
+
+heroku:
+  only:
+  - master
+  stage: deploy
+  before_script:
+  - apk add curl nodejs bash
+  - curl https://cli-assets.heroku.com/install.sh | sh
+  script:
+  - heroku container:login
+  - heroku container:push -a $HEROKU_APP $HEROKU_APP_PROCESS
+  - heroku container:release -a $HEROKU_APP $HEROKU_APP_PROCESS
