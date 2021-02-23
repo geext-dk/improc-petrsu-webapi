@@ -1,11 +1,7 @@
-﻿image: docker:latest
-services:
-- docker:dind
-
-stages:
-  - deploy
-
-heroku:
+﻿heroku:
+  image: docker:latest
+  services:
+  - docker:dind
   only:
   - master
   stage: deploy
