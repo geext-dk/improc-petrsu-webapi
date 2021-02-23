@@ -3,3 +3,5 @@ obj
 native
 bin
 .idea
+*.csproj.user
+.vs
